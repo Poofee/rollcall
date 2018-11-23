@@ -38,7 +38,13 @@ MainWindow::~MainWindow()
 void MainWindow::readName()
 {
     //构造一个以data1.txt为文件名的QFile对象
+#ifdef Q_OS_WIN
     QFile file("data.txt");
+#endif
+
+#ifdef Q_OS_MACOS
+    QFile file("./../../../data.txt");
+#endif
 
     //文件以只读方式打开 || 在读取时，将行结束符转换成 \n
     if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
