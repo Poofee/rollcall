@@ -11,11 +11,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setFixedSize(410,200);
+    this->setFixedSize(410,195);
     this->setWindowTitle(tr("开始点名啦！"));
     //ui->bt_readlist->setText(tr("导入名单"));
     ui->bt_start->setText(tr("开始\n点名"));
     ui->ql_name_chosen->setText("");
+    ui->ql_name_chosen->setStyleSheet("background:transparent;font: 38pt;");
 
     timer1 = new QTimer;
     connect(timer1,SIGNAL(timeout()),this,SLOT(srand()));
@@ -26,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->bt_start,SIGNAL(clicked()),this,SLOT(on_bt_start_clicked()));
     //读入名单
     readName();
-    stu_num = names.count();
+    stu_num = names.count();    
 }
 
 MainWindow::~MainWindow()
