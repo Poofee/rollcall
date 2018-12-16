@@ -27,7 +27,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->bt_start,SIGNAL(clicked()),this,SLOT(on_bt_start_clicked()));
     //读入名单
     readName();
-    stu_num = names.count();    
+    stu_num = names.count();
+    name_count = 0;//已经点了的名
 }
 
 MainWindow::~MainWindow()
@@ -64,6 +65,7 @@ void MainWindow::readName()
         array = array.trimmed();
         //array = array.simplified();
         names = array.split('\n');
+        old_names = names;
         //for(int i = 0; i < names.count();i++){
         //    qDebug()<<names[i];
         //}
@@ -81,13 +83,24 @@ void MainWindow::srand()
     if(count < time_count){
         qsrand(QTime(0,0,0,0).msecsTo((QTime::currentTime())));
         ui->ql_name_chosen->clear();
-        int num = qrand()%stu_num;
+        num = qrand()%names.count();
         ui->ql_name_chosen->setText(names[num]);
+
 
         count++;
     }else{
         count = 0;
         timer1->stop();
+
+        //qDebug()<<"name_count: "<<name_count<<"names.count():"<<names.count()<<"name:"<<names[num];
+
+        names.removeAt(num);
+        name_count += 1;
+
+        if(name_count >= old_names.count()/2){
+            names = old_names;
+            name_count = 0;
+        }
     }
 
 }

@@ -30,10 +30,13 @@ private:
     //QPushButton * bt_readlist;
     QTimer * timer1;
     QStringList  names;
+    QStringList  old_names;
     int stu_num;
     int time_count;
     int time_per;
     int count;
+    int name_count;
+    int num;
 };
 
 #endif // MAINWINDOW_H
