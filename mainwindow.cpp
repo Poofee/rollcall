@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setFixedSize(410,195);
+//    this->setFixedSize(410,195);
     this->setWindowTitle(tr("开始点名啦！"));
     //ui->bt_readlist->setText(tr("导入名单"));
     ui->bt_start->setText(tr("开始\n点名"));
