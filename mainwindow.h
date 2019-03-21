@@ -18,6 +18,7 @@ public:
     ~MainWindow();
 
     void readName();
+    void paintEvent(QPaintEvent *e);
 
 public slots:
     void on_bt_start_clicked();

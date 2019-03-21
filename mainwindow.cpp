@@ -15,8 +15,9 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowTitle(tr("开始点名啦！"));
     //ui->bt_readlist->setText(tr("导入名单"));
     ui->bt_start->setText(tr("开始\n点名"));
+    ui->bt_start->setStyleSheet("color:red;");
     ui->ql_name_chosen->setText("");
-    ui->ql_name_chosen->setStyleSheet("background:transparent;font: 38pt;");
+    ui->ql_name_chosen->setStyleSheet("background:transparent;font: 38pt;color:red;");
 
     timer1 = new QTimer;
     connect(timer1,SIGNAL(timeout()),this,SLOT(srand()));
@@ -29,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
     readName();
     stu_num = names.count();
     name_count = 0;//已经点了的名
+
+    setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 }
 
 MainWindow::~MainWindow()
@@ -103,4 +106,9 @@ void MainWindow::srand()
         }
     }
 
+}
+
+void MainWindow::paintEvent(QPaintEvent *e)
+{
+    setFixedSize(this->width(),this->height());
 }

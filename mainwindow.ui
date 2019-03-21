@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>655</width>
-    <height>421</height>
+    <width>600</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,11 +20,17 @@
    <widget class="QLabel" name="ql_name_chosen">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>140</x>
       <y>0</y>
       <width>241</width>
       <height>91</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
@@ -39,11 +45,20 @@
    <widget class="QPushButton" name="bt_start">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>70</y>
+      <x>510</x>
+      <y>10</y>
       <width>80</width>
       <height>91</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>.SF NS Text</family>
+      <pointsize>24</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 24pt &quot;.SF NS Text&quot;;
